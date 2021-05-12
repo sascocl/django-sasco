@@ -1,0 +1,5 @@
+dist
+django_sasco.egg-info/
+django_sasco/__pycache__
+django_sasco/*.pyc
+
