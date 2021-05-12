@@ -36,7 +36,7 @@ setup(
     name='django_sasco',
 
     # Versions should comply with PEP440
-    version='0.0.1',
+    version='0.0.3',
 
     description='Python module with an application base for django framework, used in SASCO company.',
     long_description="\n"+long_description,
@@ -70,6 +70,9 @@ setup(
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
         'Programming Language :: Python :: 3',
+
+        # Django
+        'Framework :: Django',
     ],
 
     # What does your project relate to?
@@ -78,6 +81,7 @@ setup(
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
+    include_package_data=True,
 
     # List run-time dependencies here
     install_requires=[],
