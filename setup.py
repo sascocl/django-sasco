@@ -36,7 +36,7 @@ setup(
     name='django_sasco',
 
     # Versions should comply with PEP440
-    version='0.0.3',
+    version='0.0.4',
 
     description='Python module with an application base for django framework, used in SASCO company.',
     long_description="\n"+long_description,

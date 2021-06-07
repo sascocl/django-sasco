@@ -38,4 +38,4 @@ class AppException(Exception):
 
 # excepción para los errores de la API
 class ApiException(APIException):
-    pass
+    status_code = 520 # Web Server Returned an Unknown Error (by Cloudflare)
