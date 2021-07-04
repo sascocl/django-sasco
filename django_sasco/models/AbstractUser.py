@@ -32,6 +32,7 @@ from rest_framework.authtoken.models import Token
 import hashlib
 import os.path
 from datetime import date
+from webpush import send_user_notification
 
 from .AbstractModel import AbstractModel
 
@@ -133,3 +134,14 @@ class AbstractUser(DjangoAbstractUser, AbstractModel):
             mimetype = attachment[2] if len(attachment) == 3 else (mimetypes[extension] if extension in mimetypes else None)
             email.attach(attachment[0], attachment[1], mimetype)
         return email.send()
+
+    # envíar una notificación push al usuario
+    def send_notification(self, head, body, url = None, ttl = 60*60*24):
+        payload = {
+            'head': settings.EMAIL_SUBJECT_PREFIX + ' ' + str(head),
+            'body': str(body),
+            'icon': settings.WEBPUSH_SETTINGS['ICON'],
+        }
+        if url is not None:
+            payload['url'] = str(settings.WEBPUSH_SETTINGS['URL']) + str(url)
+        send_user_notification(user = self, payload = payload, ttl = ttl)
